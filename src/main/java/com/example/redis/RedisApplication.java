@@ -1,13 +1,17 @@
 package com.example.redis;
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {RedisAutoConfiguration.class})
 public class RedisApplication {
-
     public static void main(String[] args) {
-        SpringApplication.run(RedisApplication.class, args);
+        new SpringApplicationBuilder(RedisApplication.class)
+                .web(WebApplicationType.SERVLET)
+                .build()
+                .run(args);
     }
 
 }
