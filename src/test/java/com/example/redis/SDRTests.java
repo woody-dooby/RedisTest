@@ -20,6 +20,7 @@ import org.springframework.data.redis.hash.Jackson2HashMapper;
 import org.springframework.data.redis.hash.ObjectHashMapper;
 
 import java.util.Map;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,10 +43,10 @@ public class SDRTests {
         commands.lPush("1234".getBytes(),"다".getBytes());
         commands.lPush("1234".getBytes(),"라".getBytes());
 
-        assertEquals(new String(connection.listCommands().lPop("1234".getBytes())),"라");
-        assertEquals(new String(connection.listCommands().rPop("1234".getBytes())),"가");
-        assertEquals(new String(connection.listCommands().lPop("1234".getBytes())),"다");
-        assertEquals(new String(connection.listCommands().rPop("1234".getBytes())),"나");
+        assertEquals(new String(Objects.requireNonNull(connection.listCommands().lPop("1234".getBytes()))),"라");
+        assertEquals(new String(Objects.requireNonNull(connection.listCommands().rPop("1234".getBytes()))),"가");
+        assertEquals(new String(Objects.requireNonNull(connection.listCommands().lPop("1234".getBytes()))),"다");
+        assertEquals(new String(Objects.requireNonNull(connection.listCommands().rPop("1234".getBytes()))),"나");
     }
 
     @Test
@@ -74,11 +75,11 @@ public class SDRTests {
             return String.valueOf(size);
         });
 
-        assertEquals(ss,"26");
+        assertEquals("26",ss);
 
         log.info("connection data set : {}",template.opsForValue().get("test"));
 
-        assertEquals(template.opsForValue().get("test"),"가");
+        assertEquals("가",template.opsForValue().get("test"));
     }
 
     @Data

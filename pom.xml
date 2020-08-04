@@ -26,10 +26,10 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!--reactive Redis-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
+        </dependency>-->
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -49,11 +49,11 @@
             </exclusions>
         </dependency>
         <!--reactive Test-->
-        <dependency>
+       <!-- <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
