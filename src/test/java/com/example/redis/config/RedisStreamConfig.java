@@ -28,7 +28,7 @@ public class RedisStreamConfig {
         StreamMessageListenerContainer.StreamMessageListenerContainerOptions<String, MapRecord<String, String, String>> options =
                 StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()
                         .pollTimeout(Duration.ofMillis(1000))        //요청 시간을 1초로 지정.
-//                        .objectMapper(new ObjectHashMapper())                           //TODO spring conversionService 만 등록해도 될꺼같은데.. 해보자.
+//                        .objectMapper(new ObjectHashMapper         //RedisConversion 으로 기본 등록이 되있는 상태이나 추가적으로 등록도 가능.
                         .build();
 
         return StreamMessageListenerContainer.create(factory, options);
