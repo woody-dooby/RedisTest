@@ -1,4 +1,4 @@
-package com.example.redis;
+package com.example.redis.client;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;

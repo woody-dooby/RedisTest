@@ -2,10 +2,9 @@ package com.example.redis;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@SpringBootApplication(exclude = {RedisAutoConfiguration.class})
+@SpringBootApplication
 public class RedisApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(RedisApplication.class)

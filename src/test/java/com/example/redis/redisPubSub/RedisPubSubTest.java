@@ -1,9 +1,9 @@
-package com.example.redisPubSub;
+package com.example.redis.redisPubSub;
 
+import com.example.redis.config.RedisPubSubConfig;
 import io.netty.util.internal.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import sun.jvm.hotspot.debugger.SymbolLookup;
 
 import java.io.File;
 import java.time.Duration;
@@ -20,8 +19,8 @@ import java.util.stream.IntStream;
 
 @Slf4j
 @SpringBootTest
-@Import(com.example.config.RedisPubSubConfig.class)
-public class SDRTestsPubSub {
+@Import(RedisPubSubConfig.class)
+public class RedisPubSubTest {
 
 
     private static String expireKey = "customkey";
