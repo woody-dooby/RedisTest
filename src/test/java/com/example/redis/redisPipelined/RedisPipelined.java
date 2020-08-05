@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.StringRedisConnection;
+import org.springframework.data.redis.connection.lettuce.LettuceConnection;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -24,6 +26,8 @@ public class RedisPipelined {
     RedisTemplate<String, String> template;
     @BeforeEach
     void init(@Autowired RedisConnectionFactory factory){
+        //pipelined 의 버퍼 개수 지정(메모리의 상황에 따라 지정해주자)
+        ((LettuceConnectionFactory)factory).setPipeliningFlushPolicy(LettuceConnection.PipeliningFlushPolicy.buffered(100));
         this.template = new StringRedisTemplate(factory);
     }
 
