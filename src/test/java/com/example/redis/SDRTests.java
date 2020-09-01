@@ -68,6 +68,7 @@ public class SDRTests {
     @Test
     void stringTemplateCallBackTest(){
         StringRedisTemplate template = new StringRedisTemplate(factory);
+
         //선 작업 할수있음.
         String ss = template.execute((RedisCallback<String>) (connection)->{
             Long size = connection.dbSize(); //Spring default connection : 26
