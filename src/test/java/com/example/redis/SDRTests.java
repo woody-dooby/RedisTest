@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 @SpringBootTest
-@Import(com.example.redis.config.RedisConfig.class)
+@Import(com.example.redis.config.RedisEmbeddedConfig.class)
 public class SDRTests {
 
     @Autowired
