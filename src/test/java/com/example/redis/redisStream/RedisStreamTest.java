@@ -98,7 +98,7 @@ public class RedisStreamTest {
                         // `CLI` 로 `Consumer Group`을 key 매칭하여 생성한 후에 사용됨을 주의하자!
                         // 형식을 잘 봐야한다.
                         // Consumer 는 여기서 정해준 것이 전부이기에 여기서 추가하게 되면 컨슈머가 추가됨을 알아야하며, 주입되는 인자들에 대하여 익숙해져야 할꺼같다.
-                        // 1. Conumer.from(group, name)
+                        // 1. Consumer.from(group, name)
                         // 2. StreamReadOption
                         // 3. StreamOffset
                         // kafka 와 비교 해보아도 정말 offSet 관리가 비교적 간편하다.

@@ -17,7 +17,7 @@ public class RedisEntityInstantiator implements ObjectInstantiator {
 
     @Override
     public Object newInstance() {
-        return new RedisEntity(null);
+        return new RedisEntity(null,null);
     }
     public Object newInstance(Object... args) {
         return new RedisEntity((String)args[0],(String)args[1]);
